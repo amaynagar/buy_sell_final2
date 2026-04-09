@@ -14,7 +14,7 @@ async function testApiConnection() {
   try {
     await fetch(`${API_BASE_URL}/health`);
   } catch (error) {
-    setStatus("Backend is waking up. Please wait a moment and refresh.");
+    setStatus("Server unavailable");
   }
 }
 
@@ -60,7 +60,7 @@ function render(list) {
 }
 
 async function loadProducts() {
-  setStatus("Loading products...");
+  setStatus("Loading...");
 
   try {
     const response = await fetch(`${API_BASE_URL}/api/products`);
@@ -74,7 +74,7 @@ async function loadProducts() {
   } catch (error) {
     products = [];
     render(products);
-    setStatus("Unable to load products right now. Please try again shortly.");
+    setStatus("Server unavailable");
   }
 }
 
@@ -101,7 +101,7 @@ async function addProduct() {
     formData.append("images", files[i]);
   }
 
-  setStatus("Submitting product...");
+  setStatus("Loading...");
 
   try {
     const response = await fetch(`${API_BASE_URL}/api/products`, {
@@ -117,7 +117,7 @@ async function addProduct() {
     closeSell();
     await loadProducts();
   } catch (error) {
-    setStatus(error.message || "Unable to create product.");
+    setStatus(error.message || "Server unavailable");
   }
 }
 

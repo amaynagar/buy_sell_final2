@@ -55,7 +55,14 @@ async function loadProduct() {
     return;
   }
 
-  setStatus("Loading product...");
+  setStatus("Loading...");
+
+  try {
+    await fetch(`${API_BASE_URL}/health`);
+  } catch (error) {
+    setStatus("Server unavailable");
+    return;
+  }
 
   try {
     const response = await fetch(`${API_BASE_URL}/api/products/${encodeURIComponent(id)}`);
@@ -68,7 +75,7 @@ async function loadProduct() {
     renderDetails(product);
     setStatus("");
   } catch (error) {
-    setStatus("Unable to load product right now. Please try again.");
+    setStatus("Server unavailable");
   }
 }
 
