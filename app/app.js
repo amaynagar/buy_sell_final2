@@ -8,7 +8,11 @@ const frontendOrigin = "https://buy-sell-frontend-kw9k.onrender.com";
 
 function createCorsOptions() {
   if (process.env.NODE_ENV !== "production") {
-    return { origin: true, credentials: true };
+    return {
+      origin: true,
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      credentials: true
+    };
   }
 
   return {
@@ -20,7 +24,7 @@ function createCorsOptions() {
 
       callback(null, false);
     },
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true
   };
 }
