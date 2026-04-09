@@ -1,0 +1,29 @@
+{
+  "name": "buy-sell",
+  "version": "1.0.0",
+  "description": "Buy/Sell marketplace API and frontend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:prod": "node server.js",
+    "test": "node --test tests/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs": "^4.22.0",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "jpeg-js": "^0.4.4",
+    "mongoose": "^9.3.2",
+    "multer": "^2.1.1",
+    "pngjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.4"
+  }
+}
