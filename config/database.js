@@ -5,11 +5,15 @@ async function connectDatabase(mongoUri) {
     throw new Error("MONGO_URI is not set. Add it to your environment variables.");
   }
 
-  await mongoose.connect(mongoUri, {
-    serverSelectionTimeoutMS: 10000
-  });
+  try {
+    await mongoose.connect(mongoUri, {
+      serverSelectionTimeoutMS: 10000
+    });
 
-  console.log("Connected to MongoDB");
+    return true;
+  } catch (error) {
+    throw new Error(`MongoDB connection failed: ${error.message}`);
+  }
 }
 
 async function closeDatabase() {
