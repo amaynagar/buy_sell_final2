@@ -7,22 +7,21 @@ const { errorHandler, notFoundHandler } = require("./middleware/errorHandler");
 const frontendOrigin = "https://buy-sell-frontend-kw9k.onrender.com";
 
 function createCorsOptions() {
-  if (process.env.NODE_ENV !== "production") {
-    return {
-      origin: true,
-      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-      credentials: true
-    };
-  }
+  const allowedOrigin = "https://buy-sell-frontend-kw9k.onrender.com";
 
   return {
-    origin: (origin, callback) => {
-      if (!origin || origin === frontendOrigin) {
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+
+      if (
+        process.env.NODE_ENV !== "production" ||
+        origin === allowedOrigin
+      ) {
         callback(null, true);
         return;
       }
 
-      callback(null, false);
+      callback(new Error("Not allowed by CORS"));
     },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true
