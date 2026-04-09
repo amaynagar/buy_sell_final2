@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./config.js";
+import { API_BASE } from "./config.js";
 
 const statusText = document.getElementById("productStatus");
 const mainImg = document.getElementById("mainImg");
@@ -58,14 +58,14 @@ async function loadProduct() {
   setStatus("Loading...");
 
   try {
-    await fetch(`${API_BASE_URL}/health`);
+    await fetch(`${API_BASE}/health`);
   } catch (error) {
     setStatus("Server unavailable");
     return;
   }
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/products/${encodeURIComponent(id)}`);
+    const response = await fetch(`${API_BASE}/api/products/${encodeURIComponent(id)}`);
 
     if (!response.ok) {
       throw new Error("Unable to load product details.");

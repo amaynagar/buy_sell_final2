@@ -1,1 +1,1 @@
-export const API_BASE_URL = "https://buy-sell-app-latest.onrender.com";
+export const API_BASE = "https://buy-sell-app-latest.onrender.com";

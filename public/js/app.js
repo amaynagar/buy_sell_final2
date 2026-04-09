@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./config.js";
+import { API_BASE } from "./config.js";
 
 let products = [];
 const productsContainer = document.getElementById("products");
@@ -12,7 +12,7 @@ function setStatus(message) {
 
 async function testApiConnection() {
   try {
-    await fetch(`${API_BASE_URL}/health`);
+    await fetch(`${API_BASE}/health`);
   } catch (error) {
     setStatus("Server unavailable");
   }
@@ -63,7 +63,7 @@ async function loadProducts() {
   setStatus("Loading...");
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/products`);
+    const response = await fetch(`${API_BASE}/api/products`);
 
     if (!response.ok) {
       throw new Error("Unable to load products.");
@@ -104,7 +104,7 @@ async function addProduct() {
   setStatus("Loading...");
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/products`, {
+    const response = await fetch(`${API_BASE}/api/products`, {
       method: "POST",
       body: formData
     });
