@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | BuySell</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">BuySell</h1>
+    <a class="btn" href="index.html">Back</a>
+  </header>
+
+  <div class="product-page">
+    <p id="productStatus" class="status"></p>
+    <div class="product-top">
+      <div class="product-image">
+        <img id="mainImg" alt="Product image">
+        <div class="thumbs" id="thumbs"></div>
+      </div>
+
+      <div class="product-info-box">
+        <div class="section">
+          <h1 id="pName"></h1>
+          <p class="price" id="pPrice"></p>
+          <p class="owner" id="pOwner"></p>
+        </div>
+
+        <div class="section">
+          <h3>Overview</h3>
+          <p id="pFullDesc"></p>
+        </div>
+
+        <div class="section">
+          <h3>Contact Seller</h3>
+          <p><strong>Name:</strong> <span id="pContact"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/product.js"></script>
+</body>
+</html>

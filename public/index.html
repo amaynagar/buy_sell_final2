@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuySell | Marketplace</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">BuySell</h1>
+    <input class="search" placeholder="Search products">
+    <button class="btn sell-btn" onclick="openSell()">+ Sell</button>
+    <div class="nav-right">
+      <span class="location">India</span>
+      <button class="btn" onclick="logout()">Home</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="category-rail">
+      <h3>Categories</h3>
+      <button onclick="filterProducts('all')">All</button>
+      <button onclick="filterProducts('mobile')">Mobiles</button>
+      <button onclick="filterProducts('car')">Cars</button>
+      <button onclick="filterProducts('laptop')">Laptops</button>
+      <button onclick="filterProducts('electronics')">Electronics</button>
+      <button onclick="filterProducts('furniture')">Furniture</button>
+      <button onclick="filterProducts('clothes')">Clothes</button>
+    </aside>
+
+    <main>
+      <p id="productsStatus" class="status"></p>
+      <section class="product-grid" id="products"></section>
+    </main>
+  </div>
+
+  <div class="modal" id="sellModal">
+    <div class="modal-box">
+      <h2>Sell Your Product</h2>
+      <input id="pname" placeholder="Product name">
+      <input id="pprice" placeholder="Price">
+      <textarea id="pdesc" placeholder="Write product description..."></textarea>
+      <select id="pcategory">
+        <option value="mobile">Mobile</option>
+        <option value="car">Car</option>
+        <option value="laptop">Laptop</option>
+        <option value="electronics">Electronics</option>
+        <option value="furniture">Furniture</option>
+        <option value="clothes">Clothes</option>
+      </select>
+      <input type="file" id="pimages" accept="image/*" multiple>
+      <img id="preview" alt="Preview">
+      <div class="modal-actions">
+        <button class="btn" onclick="addProduct()">List Product</button>
+        <button class="btn danger" onclick="closeSell()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
