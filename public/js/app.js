@@ -1,5 +1,5 @@
 import { API_BASE } from "./config.js";
-
+/*this fron */
 let products = [];
 const productsContainer = document.getElementById("products");
 const statusText = document.getElementById("productsStatus");
